@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.tokopediacompose.R
 
-data class ListTopCategory(
+data class ListCategory(
     @DrawableRes val imgTopCategory: Int,
     @StringRes val txtTopCategory: Int
 )
@@ -16,4 +16,4 @@ val dummyListTopCategory = listOf(
     R.drawable.promo to R.string.txt_category_discount,
     R.drawable.official to R.string.txt_official_store,
     R.drawable.paylater to R.string.txt_pay_later
-).map { ListTopCategory(it.first, it.second) }
+).map { ListCategory(it.first, it.second) }
