@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tokopediacompose.component.ListBottomCategory
 import com.example.tokopediacompose.component.MainCardCategory
+import com.example.tokopediacompose.component.MainImageCategory
 import com.example.tokopediacompose.component.MainTopBar
 import com.example.tokopediacompose.component.MainTopCategory
 import com.example.tokopediacompose.component.TopMenu
@@ -58,6 +59,7 @@ fun TokopediaClone(modifier: Modifier = Modifier) {
         MainCategoryTop()
         MainCategoryCard()
         MainCategoryBottom()
+        MainCategoryImage()
     }
 }
 
@@ -140,5 +142,19 @@ fun MainCategoryCard() {
 private fun MainCategoryCardPrev() {
     TokopediaComposeTheme {
         MainCategoryCard()
+    }
+}
+
+
+@Composable
+fun MainCategoryImage() {
+    MainImageCategory()
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MainCategoryImagePrev() {
+    TokopediaComposeTheme {
+        MainCategoryImage()
     }
 }
