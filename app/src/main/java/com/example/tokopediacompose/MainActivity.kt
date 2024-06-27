@@ -18,8 +18,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.tokopediacompose.component.ListBottomCategory
+import com.example.tokopediacompose.component.MainCardCategory
 import com.example.tokopediacompose.component.MainTopBar
+import com.example.tokopediacompose.component.MainTopCategory
 import com.example.tokopediacompose.component.TopMenu
+import com.example.tokopediacompose.model.dummyListBanner
+import com.example.tokopediacompose.model.dummyListBottomCategory
+import com.example.tokopediacompose.model.dummyListTopCategory
 import com.example.tokopediacompose.model.dummyListTopMenus
 import com.example.tokopediacompose.ui.theme.TokopediaComposeTheme
 
@@ -49,6 +55,9 @@ fun TokopediaClone(modifier: Modifier = Modifier) {
     ) {
         MainTopBar()
         MainTopMenu()
+        MainCategoryTop()
+        MainCategoryCard()
+        MainCategoryBottom()
     }
 }
 
@@ -77,5 +86,59 @@ fun MainTopMenu() {
 private fun MainTopMenuPrev() {
     TokopediaComposeTheme {
         MainTopMenu()
+    }
+}
+
+@Composable
+fun MainCategoryTop() {
+    LazyRow {
+        items(dummyListTopCategory){
+            MainTopCategory(listTopCategory = it)
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun MainCategoryTopPrev() {
+    TokopediaComposeTheme {
+        MainCategoryTop()
+    }
+}
+
+
+@Composable
+fun MainCategoryBottom() {
+    LazyRow {
+        items(dummyListBottomCategory){
+            ListBottomCategory(listBottomCategory = it)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MainCategoryBottomPrev() {
+    TokopediaComposeTheme {
+        MainCategoryBottom()
+    }
+}
+
+
+@Composable
+fun MainCategoryCard() {
+    LazyRow {
+        items(dummyListBanner){
+            MainCardCategory(listBanner = it)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MainCategoryCardPrev() {
+    TokopediaComposeTheme {
+        MainCategoryCard()
     }
 }
