@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tokopediacompose.component.ListBottomCategory
+import com.example.tokopediacompose.component.MainBannerVertical
 import com.example.tokopediacompose.component.MainCardCategory
 import com.example.tokopediacompose.component.MainImageCategory
 import com.example.tokopediacompose.component.MainTopBar
@@ -26,6 +27,7 @@ import com.example.tokopediacompose.component.MainTopCategory
 import com.example.tokopediacompose.component.TopMenu
 import com.example.tokopediacompose.model.dummyListBanner
 import com.example.tokopediacompose.model.dummyListBottomCategory
+import com.example.tokopediacompose.model.dummyListCardForYou
 import com.example.tokopediacompose.model.dummyListTopCategory
 import com.example.tokopediacompose.model.dummyListTopMenus
 import com.example.tokopediacompose.ui.theme.TokopediaComposeTheme
@@ -60,6 +62,7 @@ fun TokopediaClone(modifier: Modifier = Modifier) {
         MainCategoryCard()
         MainCategoryBottom()
         MainCategoryImage()
+        BannerVertical()
     }
 }
 
@@ -156,5 +159,24 @@ fun MainCategoryImage() {
 private fun MainCategoryImagePrev() {
     TokopediaComposeTheme {
         MainCategoryImage()
+    }
+}
+
+
+@Composable
+fun BannerVertical() {
+    LazyRow {
+        items(dummyListCardForYou) {
+            MainBannerVertical(listCardForYou = it)
+        }
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun BannerVerticalPrev() {
+    TokopediaComposeTheme {
+        BannerVertical()
     }
 }
