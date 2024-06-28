@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.tokopediacompose.component.BottomBar
 import com.example.tokopediacompose.component.ListBottomCategory
 import com.example.tokopediacompose.component.MainBannerVertical
 import com.example.tokopediacompose.component.MainCardCategory
@@ -52,17 +54,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TokopediaClone(modifier: Modifier = Modifier) {
-    Column(
-        modifier  = modifier
-            .verticalScroll(rememberScrollState())
-    ) {
-        MainTopBar()
-        MainTopMenu()
-        MainCategoryTop()
-        MainCategoryCard()
-        MainCategoryBottom()
-        MainCategoryImage()
-        BannerVertical()
+    Scaffold(bottomBar = { BottomBar()}) { paddingValues ->
+        Column(
+            modifier  = modifier
+                .verticalScroll(rememberScrollState())
+                .padding(paddingValues)
+        ) {
+            MainTopBar()
+            MainTopMenu()
+            MainCategoryTop()
+            MainCategoryCard()
+            MainCategoryBottom()
+            MainCategoryImage()
+            BannerVertical()
+            //MainBottomBar() *Kita comment karena sudah pake sacafold
+        }
     }
 }
 
@@ -179,4 +185,16 @@ private fun BannerVerticalPrev() {
     TokopediaComposeTheme {
         BannerVertical()
     }
+}
+
+
+@Composable
+fun MainBottomBar() {
+    BottomBar()
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MainBottomBarPrev() {
+    MainBottomBar()
 }
